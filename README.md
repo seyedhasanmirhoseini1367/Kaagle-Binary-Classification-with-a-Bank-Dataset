@@ -1,4 +1,4 @@
-<img width="145" height="145" alt="image" src="https://github.com/user-attachments/assets/1ea60e4f-5ce9-46f4-b4d6-c71f0323ed7d" />
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/1ea60e4f-5ce9-46f4-b4d6-c71f0323ed7d" />
 EEG Foundation Challenge: From Cross-Task to Cross-Subject EEG Decoding
 The 2025 EEG Foundation Challenge: From Cross-Task to Cross-Subject EEG Decoding is a biosignal challenge accepted to the NeurIPS 2025 Competition Track. This competition aims to advance the field of EEG decoding by addressing two critical challenges:
 
