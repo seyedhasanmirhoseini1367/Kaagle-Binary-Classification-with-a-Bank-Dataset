@@ -1,8 +1,8 @@
 """
-This script demonstrates how to load and display basic information from an EEGLAB .set
-file containing electroencephalography (EEG) data using the MNE-Python library.
+This script demonstrates how to load and display basic information from .set
+file containing EEG data using the MNE-Python library.
 
-The loaded dataset pertains to 'sub-NDARFW972KFQ', likely a participant from a study,
+The loaded dataset pertains to 'sub-NDARFW972KFQ', a subject from the study,
 and was recorded during a 'DiaryOfAWimpyKid' task.
 
 Key characteristics of the loaded EEG data:
@@ -12,7 +12,6 @@ Key characteristics of the loaded EEG data:
 - Lowpass Filter: 250.0 Hz (indicating frequencies above 250 Hz were attenuated during acquisition)
 - Highpass Filter: 0.0 Hz (suggesting no high-pass filtering was applied during acquisition, or it was at DC)
 
-This initial loading step is fundamental for further EEG signal processing and analysis.
 """
 
 # pip install mne
