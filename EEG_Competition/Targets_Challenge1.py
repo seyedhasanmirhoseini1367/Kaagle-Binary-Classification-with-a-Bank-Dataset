@@ -1,9 +1,11 @@
 import numpy as np
 import pandas as pd
 
-# Targets
-# Reaction Time: The time difference (in seconds) between the stimulus onset (left_target or right_target) and the participant's response (right_buttonPress or left_buttonPress).
-# Hit Accuracy: A binary classification target indicating whether the participant responded correctly (smiley_face) or not (sad_face) during each trial.
+'''
+Targets
+Reaction Time: The time difference (in seconds) between the stimulus onset (left_target or right_target) and the participant's response (right_buttonPress or left_buttonPress).
+Hit Accuracy: A binary classification target indicating whether the participant responded correctly (smiley_face) or not (sad_face) during each trial.
+'''
     
 def reaction_time(df):
     rt_target = []
