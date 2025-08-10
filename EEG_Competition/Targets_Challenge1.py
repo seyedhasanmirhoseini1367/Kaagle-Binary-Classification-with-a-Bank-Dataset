@@ -1,7 +1,10 @@
 import numpy as np
 import pandas as pd
 
-
+# Targets
+# Reaction Time: The time difference (in seconds) between the stimulus onset (left_target or right_target) and the participant's response (right_buttonPress or left_buttonPress).
+# Hit Accuracy: A binary classification target indicating whether the participant responded correctly (smiley_face) or not (sad_face) during each trial.
+    
 def reaction_time(df):
     rt_target = []
     # Find indices where 'feedback' contains 'face' (smiley_face or sad_face)
@@ -18,7 +21,7 @@ def reaction_time(df):
 
         if not press_buttons.empty:
             rt = press_buttons.iloc[0]['onset'] - df.loc[idx-1, 'onset']
-            target = press_buttons.iloc[0]['feedback']
-            rt_target.append((np.round(rt, 3), target))
+            accuracy = press_buttons.iloc[0]['feedback']
+            rt_target.append((np.round(rt, 3), accuracy))
 
     return rt_target
