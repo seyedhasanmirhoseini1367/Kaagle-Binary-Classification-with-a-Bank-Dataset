@@ -30,30 +30,6 @@ __getitem__ returns lists of EEG data tensors and corresponding reaction time & 
 '''
 
 
-def reaction_time(df):
-    """
-    Extract reaction times and feedback labels from event DataFrame.
-    Looks for button presses following left/right target events and feedback (smiley/sad faces).
-    Returns list of tuples: (reaction_time_in_seconds, feedback_label).
-    """
-    rt_target = []
-    target_indices = df.index[df['feedback'].str.contains('face', na=False)].tolist()
-
-    for idx in target_indices:
-        # Get buttonPress events at the current index
-        press_buttons = df[(df.index == idx) & (df['value'].str.contains('buttonPress'))]
-        # Check if the previous event is a left or right target
-        prev_value = df.loc[idx - 1, 'value']
-        if prev_value not in ['left_target', 'right_target']:
-            continue
-        if not press_buttons.empty:
-            # Calculate reaction time as difference between button press and target onset
-            rt = press_buttons.iloc[0]['onset'] - df.loc[idx - 1, 'onset']
-            target = press_buttons.iloc[0]['feedback']
-            rt_target.append((np.round(rt, 3), target))
-    return rt_target
-
-
 class CCDataset(Dataset):
     def __init__(self, root_dirs, transform=None):
         """
