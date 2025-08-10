@@ -1,3 +1,5 @@
+import numpy as np
+import pandas as pd
 
 
 def reaction_time(df):
