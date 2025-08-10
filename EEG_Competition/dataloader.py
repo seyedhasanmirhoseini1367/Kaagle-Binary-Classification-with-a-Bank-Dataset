@@ -8,21 +8,6 @@ import mne  # for loading .set EEG files
 from EEG_Competition.Targets_Challenge1 import *
 
 
-def reaction_time(df):
-    rt_target = []
-    target_indices = df.index[df['feedback'].str.contains('face', na=False)].tolist()
-
-    for idx in target_indices:
-        press_buttons = df[(df.index == idx) & (df['value'].str.contains('buttonPress'))]
-        prev_value = df.loc[idx - 1, 'value']
-        if prev_value not in ['left_target', 'right_target']:
-            continue
-        if not press_buttons.empty:
-            rt = press_buttons.iloc[0]['onset'] - df.loc[idx - 1, 'onset']
-            target = press_buttons.iloc[0]['feedback']
-            rt_target.append((np.round(rt, 3), target))
-    return rt_target
-
 '''
 CCDataset: EEG Contrast Change Detection Dataset Loader
 This PyTorch Dataset class loads EEG data and associated targets
@@ -43,15 +28,6 @@ __len__ returns number of subjects.
 __getitem__ returns lists of EEG data tensors and corresponding reaction time & feedback target tensors for all runs of a given subject.
 
 '''
-
-import os
-import glob
-import pandas as pd
-import numpy as np
-import torch
-from torch.utils.data import Dataset
-import mne  # for loading .set EEG files
-from EEG_Competition.Targets_Challenge1 import *
 
 
 def reaction_time(df):
@@ -145,7 +121,7 @@ class CCDataset(Dataset):
 
         return runs_data, runs_rt, runs_fb
 
-
+'''
 # Usage example
 base_path = 'D:/EEGChallenge'
 root_dirs = [os.path.join(base_path, r) for r in os.listdir(base_path)]
@@ -161,3 +137,5 @@ for i in range(len(eeg_batch)):
 
 # DataLoader example (batches subjects, batch_size=1 means one subject per batch)
 dataloader = torch.utils.data.DataLoader(dataset, batch_size=1, shuffle=True)
+
+'''
