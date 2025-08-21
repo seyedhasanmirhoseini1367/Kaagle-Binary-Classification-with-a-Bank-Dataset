@@ -26,11 +26,6 @@ X = train.drop(['id', 'y'], axis=1)
 y = train['y']
 test = test.drop(['id'], axis=1)
 
-s = train[['education']]
-
-e = LabelEncoder()
-s.loc[:, 'edu_encoder'] = e.fit_transform(s['education'])
-
 cat_train = X.select_dtypes(include='object').columns.tolist()
 
 for col in cat_train:
