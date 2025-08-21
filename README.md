@@ -1,6 +1,7 @@
 
 Overview
 
+<img width="560" height="280" alt="image" src="https://github.com/user-attachments/assets/737df28c-4e8e-48bb-be82-34fafd40b8ff" />
 
 Your Goal: Your goal is to predict whether a client will subscribe to a bank term deposit.
 
