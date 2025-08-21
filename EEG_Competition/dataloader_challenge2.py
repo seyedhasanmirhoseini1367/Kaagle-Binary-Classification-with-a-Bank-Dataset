@@ -7,12 +7,12 @@ import mne  # for loading .set EEG files
 
 '''
 Challenge2Dataset
-This PyTorch Dataset loads multi-task EEG data and associated psychopathology factor targets for Challenge 2.
+This Dataloader class loads multi-task EEG data and associated psychopathology factor targets for Challenge 2.
+
 Input: For each subject, loads all available .set EEG recordings from multiple cognitive tasks.
 Targets: Loads continuous scores for four psychopathology factors (p_factor, internalizing, externalizing, attention) from the root directory’s participants.tsv.
 Output: Returns a list of EEG runs (tensors) per subject, along with a 4D target tensor.
-Handles variable number and length of EEG runs per participant.
-Designed for subject-level batching in a DataLoader (typically batch_size=1).
+
 '''
 
 class DataloaderChallenge2(Dataset):
@@ -75,7 +75,7 @@ class DataloaderChallenge2(Dataset):
         return runs_data, targets
 
 
-# Usage example:
+'''
 base_path = 'D:/EEGChallenge'
 root_dirs = [os.path.join(base_path, d) for d in os.listdir(base_path)]
 root_dirs
@@ -89,3 +89,4 @@ runs_data, targets = dataset[0]
 print(f"Number of EEG runs for subject: {len(runs_data)}")
 print(f"Shape of first run data: {runs_data[0].shape}")
 print(f"Targets: {targets}")
+'''
